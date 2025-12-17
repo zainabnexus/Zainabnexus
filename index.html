@@ -1,93 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Zainab Nexus | Integrated Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zainab Nexus</title>
+
+<style>
+:root{
+--green:#2d5f3f;
+--gold:#c9a961;
+--cream:#f5f1e8;
+--dark:#222;
+}
+body{
+margin:0;
+font-family:Segoe UI,Arial,sans-serif;
+background:#fdfdfb;
+color:var(--dark);
+}
+header{
+background:#fff;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+nav{
+max-width:1200px;
+margin:auto;
+padding:1rem;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.logo h1{margin:0;color:var(--green)}
+.logo p{margin:0;font-size:.75rem;color:var(--gold)}
+.nav-links{
+list-style:none;
+display:flex;
+gap:1.5rem;
+}
+.nav-links a{
+text-decoration:none;
+color:#000;
+font-weight:500;
+}
+.lang-switch button{
+margin-left:5px;
+padding:5px 8px;
+border:1px solid var(--gold);
+background:#fff;
+cursor:pointer;
+}
+.hero{
+background:linear-gradient(135deg,var(--green),#4a7c59);
+color:#fff;
+text-align:center;
+padding:4rem 1rem;
+}
+section{
+max-width:1200px;
+margin:auto;
+padding:3rem 1rem;
+}
+h2{color:var(--green)}
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:1.5rem;
+}
+.card{
+background:#fff;
+padding:1.5rem;
+border-radius:8px;
+box-shadow:0 4px 12px rgba(0,0,0,.1);
+border-top:4px solid var(--green);
+}
+footer{
+background:var(--green);
+color:#fff;
+padding:2rem 1rem;
+}
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:#fff;
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+text-decoration:none;
+}
+[lang="ur"]{
+direction:rtl;
+text-align:right;
+font-family:"Noto Nastaliq Urdu",serif;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <div class="container">
-    <h1>Zainab Nexus</h1>
-    <p class="tagline" data-en="Integrated Services in Food, Fashion & Transport"
-       data-hi="भोजन, फैशन और परिवहन में एकीकृत सेवाएँ"
-       data-ur="خوراک، فیشن اور ٹرانسپورٹ میں مربوط خدمات">
-       Integrated Services in Food, Fashion & Transport
-    </p>
+<nav>
+<div class="logo">
+<h1>Zainab Nexus</h1>
+<p data-en="Empowering Women"
+data-hi="महिलाओं को सशक्त बनाना"
+data-te="మహిళలను శక్తివంతం చేయడం"
+data-ur="خواتین کو بااختیار بنانا">Empowering Women</p>
+</div>
 
-    <div class="lang-switch">
-      <button onclick="setLang('en')">English</button>
-      <button onclick="setLang('hi')">हिंदी</button>
-      <button onclick="setLang('ur')">اردو</button>
-    </div>
-  </div>
+<ul class="nav-links">
+<li><a href="#home" data-en="Home" data-hi="मुखपृष्ठ" data-te="హోమ్" data-ur="ہوم">Home</a></li>
+<li><a href="#about" data-en="About Us" data-hi="हमारे बारे में" data-te="మా గురించి" data-ur="ہمارے بارے میں">About</a></li>
+<li><a href="#services" data-en="Services" data-hi="सेवाएं" data-te="సేవలు" data-ur="خدمات">Services</a></li>
+<li><a href="#contact" data-en="Contact" data-hi="संपर्क करें" data-te="సంప్రదించండి" data-ur="رابطہ">Contact</a></li>
+</ul>
+
+<div class="lang-switch">
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('hi')">हिंदी</button>
+<button onclick="setLang('te')">తెలుగు</button>
+<button onclick="setLang('ur')">اردو</button>
+</div>
+</nav>
 </header>
 
-<section class="services container">
-  <div class="card">
-    <h3 data-en="Cloud Kitchens"
-        data-hi="क्लाउड किचन"
-        data-ur="کلاؤڈ کچن">Cloud Kitchens</h3>
-    <p data-en="Hygienic, FSSAI-compliant food services with fast delivery."
-       data-hi="स्वच्छ, एफएसएसएआई-अनुपालन खाद्य सेवाएँ।"
-       data-ur="صاف ستھری، ایف ایس ایس اے آئی کے مطابق خوراکی خدمات۔">
-    </p>
-  </div>
+<section class="hero" id="home">
+<h2
+data-en="Empowering Women Through Opportunity"
+data-hi="अवसरों के माध्यम से महिलाओं को सशक्त बनाना"
+data-te="అవకాశాల ద్వారా మహిళలను శక్తివంతం చేయడం"
+data-ur="خواتین کو مواقع کے ذریعے بااختیار بنانا">
+Empowering Women Through Opportunity
+</h2>
 
-  <div class="card">
-    <h3 data-en="Tailoring & Garments"
-        data-hi="सिलाई और परिधान"
-        data-ur="درزی اور ملبوسات">Tailoring & Garments</h3>
-    <p data-en="Custom stitching, alterations, and bulk garment services."
-       data-hi="कस्टम सिलाई, अल्टरशन और बल्क ऑर्डर।"
-       data-ur="کسٹم سلائی، تبدیلی اور بلک آرڈرز۔">
-    </p>
-  </div>
-
-  <div class="card">
-    <h3 data-en="Transport Services"
-        data-hi="परिवहन सेवाएँ"
-        data-ur="ٹرانسپورٹ خدمات">Transport Services</h3>
-    <p data-en="Reliable local and contract-based transport solutions."
-       data-hi="विश्वसनीय स्थानीय और अनुबंध आधारित परिवहन।"
-       data-ur="قابل اعتماد مقامی اور کنٹریکٹ ٹرانسپورٹ۔">
-    </p>
-  </div>
+<p
+data-en="Safe, respectful opportunities for women to earn, lead, and grow with dignity."
+data-hi="महिलाओं के लिए सुरक्षित और सम्मानजनक अवसर।"
+data-te="మహిళలకు సురక్షితమైన, గౌరవప్రదమైన అవకాశాలు."
+data-ur="خواتین کے لیے محفوظ اور باعزت مواقع۔">
+Safe, respectful opportunities for women to earn, lead, and grow with dignity.
+</p>
 </section>
 
-<section class="about container">
-  <h2 data-en="About Us"
-      data-hi="हमारे बारे में"
-      data-ur="ہمارے بارے میں">About Us</h2>
-  <p data-en="Zainab Nexus is a proprietorship firm delivering dependable services rooted in trust, quality, and care."
-     data-hi="ज़ैनब नेक्सस एक प्रोप्राइटरशिप फर्म है जो भरोसे और गुणवत्ता पर आधारित सेवाएँ देती है।"
-     data-ur="زینب نیکسس ایک ملکیتی ادارہ ہے جو اعتماد اور معیار پر مبنی خدمات فراہم کرتا ہے۔">
-  </p>
+<section id="about">
+<h2
+data-en="About Zainab Nexus"
+data-hi="ज़ैनब नेक्सस के बारे में"
+data-te="జైనబ్ నెక్సస్ గురించి"
+data-ur="زینب نیکسس کے بارے میں">
+About Zainab Nexus
+</h2>
+
+<p
+data-en="Zainab Nexus is a women-led proprietorship created to support women who face social, cultural, or mobility barriers."
+data-hi="ज़ैनब नेक्सस एक महिला-नेतृत्व वाली संस्था है जो सामाजिक और सांस्कृतिक बाधाओं का सामना करने वाली महिलाओं का समर्थन करती है।"
+data-te="జైనబ్ నెక్సస్ సామాజిక మరియు సాంస్కృతిక అడ్డంకులు ఎదుర్కొనే మహిళలను ఆదరిస్తుంది."
+data-ur="زینب نیکسس خواتین کے لیے بنایا گیا ادارہ ہے جو سماجی اور ثقافتی رکاوٹوں کا سامنا کرتی ہیں۔">
+Zainab Nexus is a women-led proprietorship created to support women who face social, cultural, or mobility barriers.
+</p>
 </section>
 
-<section class="contact container">
-  <h2 data-en="Contact Us"
-      data-hi="संपर्क करें"
-      data-ur="رابطہ کریں">Contact Us</h2>
+<section id="services">
+<h2
+data-en="Our Services"
+data-hi="हमारी सेवाएं"
+data-te="మా సేవలు"
+data-ur="ہماری خدمات">
+Our Services
+</h2>
 
-  <form>
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Email" />
-    <input type="text" placeholder="Phone / WhatsApp" required />
-    <textarea placeholder="Your Requirement"></textarea>
-    <button type="submit">Submit</button>
-  </form>
+<div class="services">
+<div class="card">
+<h3
+data-en="Zainab Nexus Kitchens"
+data-hi="ज़ैनब नेक्सस किचन"
+data-te="జైనబ్ నెక్సస్ కిచెన్స్"
+data-ur="زینب نیکسس کچنز">
+Zainab Nexus Kitchens
+</h3>
+<p
+data-en="Women-operated cloud kitchens."
+data-hi="महिलाओं द्वारा संचालित क्लाउड किचन।"
+data-te="మహిళలు నిర్వహించే క్లౌడ్ కిచెన్స్."
+data-ur="خواتین کے زیر انتظام کلاؤڈ کچنز۔">
+Women-operated cloud kitchens.
+</p>
+</div>
+
+<div class="card">
+<h3
+data-en="Zainab Nexus Couture"
+data-hi="ज़ैनब नेक्सस कुट्योर"
+data-te="జైనబ్ నెక్సస్ కౌట్యూర్"
+data-ur="زینب نیکسس کاؤچر">
+Zainab Nexus Couture
+</h3>
+<p
+data-en="Tailoring and garment services by women."
+data-hi="महिलाओं द्वारा सिलाई और परिधान सेवाएं।"
+data-te="మహిళల ద్వారా టైలరింగ్ సేవలు."
+data-ur="خواتین کی درزی اور ملبوسات خدمات۔">
+Tailoring and garment services by women.
+</p>
+</div>
+
+<div class="card">
+<h3
+data-en="Zainab Nexus Logistics"
+data-hi="ज़ैनब नेक्सस लॉजिस्टिक्स"
+data-te="జైనబ్ నెక్సస్ లాజిస్టిక్స్"
+data-ur="زینب نیکسس لاجسٹکس">
+Zainab Nexus Logistics
+</h3>
+<p
+data-en="Safe transportation services for women."
+data-hi="महिलाओं के लिए सुरक्षित परिवहन सेवाएं।"
+data-te="మహిళలకు సురక్షిత రవాణా సేవలు."
+data-ur="خواتین کے لیے محفوظ ٹرانسپورٹ خدمات۔">
+Safe transportation services for women.
+</p>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<h2
+data-en="Contact Us"
+data-hi="संपर्क करें"
+data-te="సంప్రదించండి"
+data-ur="رابطہ کریں">
+Contact Us
+</h2>
+
+<p
+data-en="Phone: +91 9247653882 | Email: zainabnexus.works@gmail.com"
+data-hi="फोन: +91 9247653882 | ईमेल: zainabnexus.works@gmail.com"
+data-te="ఫోన్: +91 9247653882 | ఇమెయిల్: zainabnexus.works@gmail.com"
+data-ur="فون: +91 9247653882 | ای میل: zainabnexus.works@gmail.com">
+Phone: +91 9247653882 | Email: zainabnexus.works@gmail.com
+</p>
 </section>
 
 <footer>
-  <p>© 2025 Zainab Nexus (Proprietorship)</p>
+<p
+data-en="© 2024 Zainab Nexus | Proprietor: Zakia Banu"
+data-hi="© 2024 ज़ैनब नेक्सस | स्वामिनी: ज़किया बानो"
+data-te="© 2024 జైనబ్ నెక్సస్ | యజమాని: జకియా బాను"
+data-ur="© 2024 زینب نیکسس | مالک: ذکیہ بانو">
+© 2024 Zainab Nexus | Proprietor: Zakia Banu
+</p>
 </footer>
 
-<!-- WhatsApp Button -->
-<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp" target="_blank">💬</a>
+<a class="whatsapp" href="https://wa.me/919247653882" target="_blank">💬</a>
 
-<script src="script.js"></script>
+<script>
+function setLang(lang){
+document.documentElement.lang=lang;
+document.querySelectorAll("[data-en]").forEach(el=>{
+el.innerText=el.getAttribute("data-"+lang);
+});
+if(lang==="ur"){document.body.setAttribute("lang","ur");}
+else{document.body.removeAttribute("lang");}
+}
+</script>
+
 </body>
 </html>

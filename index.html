@@ -1,1481 +1,815 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Zainab Nexus - Empowering Women Through Opportunity</title>
-
     <style>
-
         * {
-
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
-
         }
-
-
 
         :root {
-
             --primary-green: #2d5f3f;
-
             --light-green: #4a7c59;
-
             --cream: #f5f1e8;
-
             --gold: #c9a961;
-
             --dark: #2c2c2c;
-
             --light-bg: #fdfdfb;
-
         }
-
-
 
         body {
-
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
             color: var(--dark);
-
             line-height: 1.6;
-
             background: var(--light-bg);
-
         }
-
-
 
         /* Header */
-
         header {
-
             background: white;
-
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
             position: sticky;
-
             top: 0;
-
             z-index: 1000;
-
         }
-
-
 
         nav {
-
             max-width: 1200px;
-
             margin: 0 auto;
-
             padding: 1rem 2rem;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
         }
-
-
 
         .logo {
-
             display: flex;
-
             align-items: center;
-
             gap: 1rem;
-
         }
-
-
 
         .logo img {
-
             height: 50px;
-
             width: auto;
-
         }
-
-
 
         .logo-text h1 {
-
             color: var(--primary-green);
-
             font-size: 1.5rem;
-
             font-weight: 600;
-
         }
-
-
 
         .logo-text p {
-
             color: var(--gold);
-
             font-size: 0.75rem;
-
             font-weight: 500;
-
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
 
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            border: 2px solid var(--primary-green);
+            background: white;
+            color: var(--primary-green);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: var(--cream);
+        }
+
+        .lang-btn.active {
+            background: var(--primary-green);
+            color: white;
+        }
 
         .nav-links {
-
             display: flex;
-
             gap: 2rem;
-
             list-style: none;
-
         }
-
-
 
         .nav-links a {
-
             text-decoration: none;
-
             color: var(--dark);
-
             font-weight: 500;
-
             transition: color 0.3s;
-
         }
-
-
 
         .nav-links a:hover {
-
             color: var(--primary-green);
-
         }
-
-
 
         .menu-toggle {
-
             display: none;
-
             background: none;
-
             border: none;
-
             font-size: 1.5rem;
-
             cursor: pointer;
-
             color: var(--primary-green);
-
         }
-
-
 
         /* Hero Section */
-
         .hero {
-
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
-
             color: white;
-
             padding: 4rem 2rem;
-
             text-align: center;
-
         }
-
-
 
         .hero-content {
-
             max-width: 900px;
-
             margin: 0 auto;
-
         }
-
-
 
         .hero h2 {
-
             font-size: 2.5rem;
-
             margin-bottom: 1rem;
-
             line-height: 1.2;
-
         }
-
-
 
         .hero p {
-
             font-size: 1.2rem;
-
             margin-bottom: 2rem;
-
             opacity: 0.95;
-
         }
-
-
 
         .cta-buttons {
-
             display: flex;
-
             gap: 1rem;
-
             justify-content: center;
-
             flex-wrap: wrap;
-
         }
-
-
 
         .btn {
-
             padding: 0.9rem 2rem;
-
             border: none;
-
             border-radius: 5px;
-
             font-size: 1rem;
-
             font-weight: 600;
-
             cursor: pointer;
-
             text-decoration: none;
-
             display: inline-block;
-
             transition: all 0.3s;
-
         }
-
-
 
         .btn-primary {
-
             background: var(--gold);
-
             color: var(--dark);
-
         }
-
-
 
         .btn-primary:hover {
-
             background: #d4b56d;
-
             transform: translateY(-2px);
-
         }
-
-
 
         .btn-secondary {
-
             background: white;
-
             color: var(--primary-green);
-
         }
-
-
 
         .btn-secondary:hover {
-
             background: var(--cream);
-
             transform: translateY(-2px);
-
         }
-
-
 
         /* Section Styling */
-
         section {
-
             max-width: 1200px;
-
             margin: 0 auto;
-
             padding: 4rem 2rem;
-
         }
-
-
 
         .section-header {
-
             text-align: center;
-
             margin-bottom: 3rem;
-
         }
-
-
 
         .section-header h2 {
-
             color: var(--primary-green);
-
             font-size: 2rem;
-
             margin-bottom: 0.5rem;
-
         }
-
-
 
         .section-header p {
-
             color: #666;
-
             font-size: 1.1rem;
-
         }
-
-
 
         /* About Section */
-
         .about-content {
-
             display: grid;
-
             grid-template-columns: 1fr 1fr;
-
             gap: 3rem;
-
             align-items: center;
-
         }
-
-
 
         .about-text h3 {
-
             color: var(--primary-green);
-
             margin-bottom: 1rem;
-
             font-size: 1.5rem;
-
         }
-
-
 
         .about-text p {
-
             margin-bottom: 1rem;
-
             color: #555;
-
             line-height: 1.8;
-
         }
-
-
 
         .mission-vision {
-
             background: var(--cream);
-
             padding: 2rem;
-
             border-radius: 10px;
-
             border-left: 4px solid var(--gold);
-
         }
-
-
 
         .mission-vision h4 {
-
             color: var(--primary-green);
-
             margin-bottom: 0.5rem;
-
         }
-
-
 
         /* Services Grid */
-
         .services-grid {
-
             display: grid;
-
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
             gap: 2rem;
-
         }
-
-
 
         .service-card {
-
             background: white;
-
             padding: 2rem;
-
             border-radius: 10px;
-
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-
             transition: transform 0.3s;
-
             border-top: 4px solid var(--primary-green);
-
         }
-
-
 
         .service-card:hover {
-
             transform: translateY(-5px);
-
         }
-
-
 
         .service-icon {
-
             font-size: 3rem;
-
             margin-bottom: 1rem;
-
         }
-
-
 
         .service-card h3 {
-
             color: var(--primary-green);
-
             margin-bottom: 1rem;
-
             font-size: 1.4rem;
-
         }
-
-
 
         .service-card p {
-
             color: #666;
-
             margin-bottom: 0.5rem;
-
         }
-
-
 
         /* Impact Section */
-
         .impact {
-
             background: var(--cream);
-
         }
-
-
 
         .impact-stats {
-
             display: grid;
-
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
             gap: 2rem;
-
             margin-top: 2rem;
-
         }
-
-
 
         .stat-card {
-
             text-align: center;
-
             padding: 2rem;
-
             background: white;
-
             border-radius: 10px;
-
         }
-
-
 
         .stat-number {
-
             font-size: 2.5rem;
-
             font-weight: bold;
-
             color: var(--primary-green);
-
             display: block;
-
         }
-
-
 
         .stat-label {
-
             color: #666;
-
             font-size: 1rem;
-
             margin-top: 0.5rem;
-
         }
-
-
 
         .impact-text {
-
             background: white;
-
             padding: 2rem;
-
             border-radius: 10px;
-
             margin-top: 2rem;
-
             border-left: 4px solid var(--gold);
-
         }
-
-
 
         .impact-text h3 {
-
             color: var(--primary-green);
-
             margin-bottom: 1rem;
-
         }
-
-
 
         /* Gallery */
-
         .gallery-grid {
-
             display: grid;
-
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
             gap: 1.5rem;
-
         }
-
-
 
         .gallery-item {
-
             background: var(--cream);
-
             border-radius: 10px;
-
             overflow: hidden;
-
             aspect-ratio: 4/3;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             font-size: 3rem;
-
         }
-
-
 
         /* Contact Form */
-
         .contact-container {
-
             display: grid;
-
             grid-template-columns: 1fr 1fr;
-
             gap: 3rem;
-
         }
-
-
 
         .contact-info {
-
             background: var(--cream);
-
             padding: 2rem;
-
             border-radius: 10px;
-
         }
-
-
 
         .contact-info h3 {
-
             color: var(--primary-green);
-
             margin-bottom: 1.5rem;
-
         }
-
-
 
         .info-item {
-
             margin-bottom: 1.5rem;
-
         }
-
-
 
         .info-item strong {
-
             color: var(--primary-green);
-
             display: block;
-
             margin-bottom: 0.3rem;
-
         }
-
-
 
         .contact-form {
-
             background: white;
-
             padding: 2rem;
-
             border-radius: 10px;
-
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-
         }
-
-
 
         .form-group {
-
             margin-bottom: 1.5rem;
-
         }
-
-
 
         .form-group label {
-
             display: block;
-
             margin-bottom: 0.5rem;
-
             color: var(--primary-green);
-
             font-weight: 500;
-
         }
-
-
 
         .form-group input,
-
-        .form-group textarea {
-
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-
             padding: 0.8rem;
-
             border: 1px solid #ddd;
-
             border-radius: 5px;
-
             font-size: 1rem;
-
             font-family: inherit;
-
         }
-
-
 
         .form-group textarea {
-
             resize: vertical;
-
             min-height: 120px;
-
         }
 
-
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+        }
 
         /* Footer */
-
         footer {
-
             background: var(--primary-green);
-
             color: white;
-
             padding: 3rem 2rem 1rem;
-
         }
-
-
 
         .footer-content {
-
             max-width: 1200px;
-
             margin: 0 auto;
-
             display: grid;
-
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
             gap: 2rem;
-
             margin-bottom: 2rem;
-
         }
-
-
 
         .footer-section h3 {
-
             margin-bottom: 1rem;
-
             color: var(--gold);
-
         }
-
-
 
         .footer-section p,
-
         .footer-section a {
-
             color: rgba(255,255,255,0.9);
-
             text-decoration: none;
-
             line-height: 1.8;
-
         }
-
-
 
         .footer-section a:hover {
-
             color: var(--gold);
-
         }
-
-
 
         .footer-bottom {
-
             text-align: center;
-
             padding-top: 2rem;
-
             border-top: 1px solid rgba(255,255,255,0.2);
-
             color: rgba(255,255,255,0.8);
-
         }
-
-
 
         /* WhatsApp Button */
-
         .whatsapp-float {
-
             position: fixed;
-
             bottom: 30px;
-
             right: 30px;
-
             width: 60px;
-
             height: 60px;
-
             background: #25D366;
-
             border-radius: 50%;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             font-size: 2rem;
-
             color: white;
-
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-
             cursor: pointer;
-
             z-index: 1000;
-
             transition: transform 0.3s;
-
             text-decoration: none;
-
         }
-
-
 
         .whatsapp-float:hover {
-
             transform: scale(1.1);
-
         }
-
-
 
         /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .nav-right {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 1rem;
+            }
 
-        @media (max-width: 768px) {
+            .language-selector {
+                order: -1;
+            }
 
             .nav-links {
-
                 display: none;
-
                 position: absolute;
-
                 top: 100%;
-
                 left: 0;
-
                 right: 0;
-
                 background: white;
-
                 flex-direction: column;
-
                 padding: 1rem;
-
                 box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
             }
-
-
 
             .nav-links.active {
-
                 display: flex;
-
             }
-
-
 
             .menu-toggle {
-
                 display: block;
-
             }
-
-
 
             .hero h2 {
-
                 font-size: 1.8rem;
-
             }
-
-
 
             .hero p {
-
                 font-size: 1rem;
-
             }
-
-
 
             .about-content {
-
                 grid-template-columns: 1fr;
-
             }
-
-
 
             .contact-container {
-
                 grid-template-columns: 1fr;
-
             }
-
-
 
             .cta-buttons {
-
                 flex-direction: column;
-
             }
 
+            .lang-btn {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.6rem;
+            }
         }
 
+        .hidden {
+            display: none;
+        }
     </style>
-
 </head>
-
 <body>
-
     <!-- Header -->
-
     <header>
-
         <nav>
-
             <div class="logo">
-
                 <img src="https://i.ibb.co/HLmDCWq/logo.png" alt="Zainab Nexus Logo" onerror="this.style.display='none'">
-
                 <div class="logo-text">
-
                     <h1>Zainab Nexus</h1>
-
-                    <p>Empowering Women</p>
-
+                    <p data-lang="tagline">Empowering Women</p>
                 </div>
-
             </div>
-
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-            <ul class="nav-links" id="navLinks">
-
-                <li><a href="#home">Home</a></li>
-
-                <li><a href="#about">About Us</a></li>
-
-                <li><a href="#services">Services</a></li>
-
-                <li><a href="#impact">Our Impact</a></li>
-
-                <li><a href="#gallery">Gallery</a></li>
-
-                <li><a href="#contact">Contact</a></li>
-
-            </ul>
-
+            <div class="nav-right">
+                <div class="language-selector">
+                    <button class="lang-btn active" onclick="changeLanguage('en')">English</button>
+                    <button class="lang-btn" onclick="changeLanguage('te')">తెలుగు</button>
+                    <button class="lang-btn" onclick="changeLanguage('ur')">اردو</button>
+                    <button class="lang-btn" onclick="changeLanguage('hi')">हिंदी</button>
+                </div>
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" data-lang="nav_home">Home</a></li>
+                    <li><a href="#about" data-lang="nav_about">About Us</a></li>
+                    <li><a href="#services" data-lang="nav_services">Services</a></li>
+                    <li><a href="#impact" data-lang="nav_impact">Our Impact</a></li>
+                    <li><a href="#gallery" data-lang="nav_gallery">Gallery</a></li>
+                    <li><a href="#contact" data-lang="nav_contact">Contact</a></li>
+                </ul>
+            </div>
         </nav>
-
     </header>
 
-
-
     <!-- Hero Section -->
-
     <section class="hero" id="home">
-
         <div class="hero-content">
-
-            <h2>Empowering Women Through Opportunity</h2>
-
-            <p>Creating safe, respectful pathways for women to achieve financial independence while honoring cultural values and personal dignity.</p>
-
+            <h2 data-lang="hero_title">Empowering Women Through Opportunity</h2>
+            <p data-lang="hero_subtitle">Creating safe, respectful pathways for women to achieve financial independence while honoring cultural values and personal dignity.</p>
             <div class="cta-buttons">
-
-                <a href="#contact" class="btn btn-primary">Join as a Partner</a>
-
-                <a href="#services" class="btn btn-secondary">Explore Our Services</a>
-
+                <a href="#contact" class="btn btn-primary" data-lang="cta_partner">Join as a Partner</a>
+                <a href="#services" class="btn btn-secondary" data-lang="cta_services">Explore Our Services</a>
             </div>
-
         </div>
-
     </section>
-
-
 
     <!-- About Section -->
-
     <section id="about">
-
         <div class="section-header">
-
-            <h2>About Zainab Nexus</h2>
-
-            <p>A women-led proprietorship rooted in community values</p>
-
+            <h2 data-lang="about_title">About Zainab Nexus</h2>
+            <p data-lang="about_subtitle">A women-led proprietorship rooted in community values</p>
         </div>
-
         <div class="about-content">
-
             <div class="about-text">
-
-                <h3>Our Story</h3>
-
-                <p>Zainab Nexus was founded with a clear vision: to create opportunities for women who face social, cultural, or mobility restrictions that prevent them from working outside their homes. We understand that many families in Hyderabad Old City and beyond hesitate to allow their daughters or wives to step into traditional workplaces.</p>
-
-                <p>We provide safe, respectful, women-only business opportunities where women can work, manage, and grow with complete dignity. From cloud kitchens to tailoring services and transportation, we build platforms where women lead.</p>
-
-                <p><strong>Proprietor:</strong> Zakia Banu<br>
-
-                A woman entrepreneur committed to creating change in her community.</p>
-
+                <h3 data-lang="about_story_title">Our Story</h3>
+                <p data-lang="about_para1">Zainab Nexus was founded with a clear vision: to create opportunities for women who face social, cultural, or mobility restrictions that prevent them from working outside their homes. We understand that many families in Hyderabad Old City and beyond hesitate to allow their daughters or wives to step into traditional workplaces.</p>
+                <p data-lang="about_para2">We provide safe, respectful, women-only business opportunities where women can work, manage, and grow with complete dignity. From cloud kitchens to tailoring services and transportation, we build platforms where women lead.</p>
+                <p><strong data-lang="proprietor_label">Proprietor:</strong> <span data-lang="proprietor_name">Zakia Banu</span><br>
+                <span data-lang="proprietor_desc">A woman entrepreneur committed to creating change in her community.</span></p>
             </div>
-
             <div class="mission-vision">
-
-                <h4>🎯 Our Vision</h4>
-
-                <p>To create a safe, inclusive, and self-reliant ecosystem where women can earn, lead, and grow without compromising cultural values or personal safety.</p>
-
+                <h4 data-lang="vision_label">🎯 Our Vision</h4>
+                <p data-lang="vision_text">To create a safe, inclusive, and self-reliant ecosystem where women can earn, lead, and grow without compromising cultural values or personal safety.</p>
                 <br>
-
-                <h4>💚 Our Mission</h4>
-
-                <p>To build a chain of women-operated cloud kitchens, provide tailoring and garment services run by women from their own communities, and enable women-friendly transportation services where women can drive, manage trips, and handle operations confidently.</p>
-
+                <h4 data-lang="mission_label">💚 Our Mission</h4>
+                <p data-lang="mission_text">To build a chain of women-operated cloud kitchens, provide tailoring and garment services run by women from their own communities, and enable women-friendly transportation services where women can drive, manage trips, and handle operations confidently.</p>
             </div>
-
         </div>
-
     </section>
-
-
 
     <!-- Services Section -->
-
     <section id="services">
-
         <div class="section-header">
-
-            <h2>Our Services</h2>
-
-            <p>Three empowering business verticals operated by women</p>
-
+            <h2 data-lang="services_title">Our Services</h2>
+            <p data-lang="services_subtitle">Three empowering business verticals operated by women</p>
         </div>
-
         <div class="services-grid">
-
             <div class="service-card">
-
                 <div class="service-icon">🍳</div>
-
-                <h3>Zainab Nexus Kitchens</h3>
-
-                <p><strong>Women-Operated Cloud Kitchens</strong></p>
-
-                <p>Hygienic, FSSAI-compliant food preparation services managed entirely by women. We provide the opportunity for women to operate kitchens from home or shared spaces, creating sustainable income while maintaining flexibility.</p>
-
-                <p>✓ Home-based kitchen opportunities<br>
-
+                <h3 data-lang="service1_title">Zainab Nexus Kitchens</h3>
+                <p><strong data-lang="service1_subtitle">Women-Operated Cloud Kitchens</strong></p>
+                <p data-lang="service1_desc">Hygienic, FSSAI-compliant food preparation services managed entirely by women. We provide the opportunity for women to operate kitchens from home or shared spaces, creating sustainable income while maintaining flexibility.</p>
+                <p data-lang="service1_features">✓ Home-based kitchen opportunities<br>
                 ✓ Quality training and certification<br>
-
                 ✓ Direct orders and delivery partnerships</p>
-
             </div>
 
-
-
             <div class="service-card">
-
                 <div class="service-icon">✂️</div>
-
-                <h3>Zainab Nexus Couture</h3>
-
-                <p><strong>Tailoring & Garment Services</strong></p>
-
-                <p>Women-led garment production, custom tailoring, stitching, and alterations. We create employment and skill-based income opportunities for women in the garment sector, preserving traditional craftsmanship while building modern businesses.</p>
-
-                <p>✓ Custom tailoring services<br>
-
+                <h3 data-lang="service2_title">Zainab Nexus Couture</h3>
+                <p><strong data-lang="service2_subtitle">Tailoring & Garment Services</strong></p>
+                <p data-lang="service2_desc">Women-led garment production, custom tailoring, stitching, and alterations. We create employment and skill-based income opportunities for women in the garment sector, preserving traditional craftsmanship while building modern businesses.</p>
+                <p data-lang="service2_features">✓ Custom tailoring services<br>
                 ✓ Garment production units<br>
-
                 ✓ Skill development programs</p>
-
             </div>
-
-
 
             <div class="service-card">
-
                 <div class="service-icon">🚗</div>
-
-                <h3>Zainab Nexus Logistics</h3>
-
-                <p><strong>Women-Focused Transportation</strong></p>
-
-                <p>Safe transportation services managed by women for women. Our women drivers and trip managers support mobility and independence, creating a trusted network for families who prioritize safety and dignity.</p>
-
-                <p>✓ Women drivers and operators<br>
-
+                <h3 data-lang="service3_title">Zainab Nexus Logistics</h3>
+                <p><strong data-lang="service3_subtitle">Women-Focused Transportation</strong></p>
+                <p data-lang="service3_desc">Safe transportation services managed by women for women. Our women drivers and trip managers support mobility and independence, creating a trusted network for families who prioritize safety and dignity.</p>
+                <p data-lang="service3_features">✓ Women drivers and operators<br>
                 ✓ Safe and reliable transport<br>
-
                 ✓ Community-trusted service</p>
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <!-- Impact Section -->
-
     <section class="impact" id="impact">
-
         <div class="section-header">
-
-            <h2>Our Vision & Impact</h2>
-
-            <p>Creating meaningful change in women's lives</p>
-
+            <h2 data-lang="impact_title">Our Vision & Impact</h2>
+            <p data-lang="impact_subtitle">Creating meaningful change in women's lives</p>
         </div>
-
         <div class="impact-stats">
-
             <div class="stat-card">
-
                 <span class="stat-number">100%</span>
-
-                <span class="stat-label">Women-Led Operations</span>
-
+                <span class="stat-label" data-lang="stat1">Women-Led Operations</span>
             </div>
-
             <div class="stat-card">
-
                 <span class="stat-number">3</span>
-
-                <span class="stat-label">Business Verticals</span>
-
+                <span class="stat-label" data-lang="stat2">Business Verticals</span>
             </div>
-
             <div class="stat-card">
-
                 <span class="stat-number">∞</span>
-
-                <span class="stat-label">Opportunities Ahead</span>
-
+                <span class="stat-label" data-lang="stat3">Opportunities Ahead</span>
             </div>
-
         </div>
-
         <div class="impact-text">
-
-            <h3>Why Women Choose Zainab Nexus</h3>
-
-            <p>Many women in our community wish to become financially independent but face barriers that prevent them from traditional employment. Some are not allowed to work outside their homes. Others face safety concerns or lack family support for conventional workplace environments.</p>
-
-            <p>Zainab Nexus removes these barriers. We create women-only spaces where cultural values are respected, safety is guaranteed, and leadership opportunities are abundant. Our business model is built on the principle that economic empowerment and cultural respect can coexist beautifully.</p>
-
-            <p><strong>We believe:</strong> Every woman deserves the dignity of choice, the safety of community, and the opportunity to build her own future.</p>
-
+            <h3 data-lang="impact_why_title">Why Women Choose Zainab Nexus</h3>
+            <p data-lang="impact_para1">Many women in our community wish to become financially independent but face barriers that prevent them from traditional employment. Some are not allowed to work outside their homes. Others face safety concerns or lack family support for conventional workplace environments.</p>
+            <p data-lang="impact_para2">Zainab Nexus removes these barriers. We create women-only spaces where cultural values are respected, safety is guaranteed, and leadership opportunities are abundant. Our business model is built on the principle that economic empowerment and cultural respect can coexist beautifully.</p>
+            <p><strong data-lang="impact_believe">We believe:</strong> <span data-lang="impact_believe_text">Every woman deserves the dignity of choice, the safety of community, and the opportunity to build her own future.</span></p>
         </div>
-
     </section>
-
-
 
     <!-- Gallery Section -->
-
     <section id="gallery">
-
         <div class="section-header">
-
-            <h2>Our Work in Action</h2>
-
-            <p>Glimpses of our community and services</p>
-
+            <h2 data-lang="gallery_title">Our Work in Action</h2>
+            <p data-lang="gallery_subtitle">Glimpses of our community and services</p>
         </div>
-
         <div class="gallery-grid">
-
             <div class="gallery-item">🍲</div>
-
             <div class="gallery-item">👗</div>
-
             <div class="gallery-item">🚕</div>
-
             <div class="gallery-item">👩‍🍳</div>
-
             <div class="gallery-item">🧵</div>
-
             <div class="gallery-item">💼</div>
-
         </div>
-
     </section>
-
-
 
     <!-- Contact Section -->
-
     <section id="contact">
-
         <div class="section-header">
-
-            <h2>Get in Touch</h2>
-
-            <p>Join us or place your order</p>
-
+            <h2 data-lang="contact_title">Get in Touch</h2>
+            <p data-lang="contact_subtitle">Join us or place your order</p>
         </div>
-
         <div class="contact-container">
-
             <div class="contact-info">
-
-                <h3>Contact Information</h3>
-
+                <h3 data-lang="contact_info_title">Contact Information</h3>
                 <div class="info-item">
-
-                    <strong>Business Name</strong>
-
-                    Zainab Nexus (Proprietorship)
-
+                    <strong data-lang="business_name_label">Business Name</strong>
+                    <span data-lang="business_name">Zainab Nexus (Proprietorship)</span>
                 </div>
-
                 <div class="info-item">
-
-                    <strong>Proprietor</strong>
-
-                    Zakia Banu
-
+                    <strong data-lang="proprietor_label">Proprietor</strong>
+                    <span data-lang="proprietor_name">Zakia Banu</span>
                 </div>
-
                 <div class="info-item">
-
-                    <strong>Phone</strong>
-
+                    <strong data-lang="phone_label">Phone</strong>
                     <a href="tel:+919247653882">+91 9247653882</a>
-
                 </div>
-
                 <div class="info-item">
-
-                    <strong>Email</strong>
-
+                    <strong data-lang="email_label">Email</strong>
                     <a href="mailto:zainabnexus.works@gmail.com">zainabnexus.works@gmail.com</a>
-
                 </div>
-
                 <div class="info-item">
-
-                    <strong>Location</strong>
-
-                    Hyderabad Old City, Telangana
-
+                    <strong data-lang="location_label">Location</strong>
+                    <span data-lang="location_text">Hyderabad Old City, Telangana</span>
                 </div>
-
             </div>
-
-
 
             <div class="contact-form">
-
-                <h3>Send Us a Message</h3>
-
-                <form onsubmit="handleSubmit(event)">
-
+                <h3 data-lang="form_title">Send Us a Message</h3>
+                <div class="success-message" id="successMessage" data-lang="form_success">Thank you for your message! We will contact you soon.</div>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
                     <div class="form-group">
-
-                        <label>Name *</label>
-
-                        <input type="text" required>
-
+                        <label data-lang="form_name">Name *</label>
+                        <input type="text" id="name" required>
                     </div>
-
                     <div class="form-group">
-
-                        <label>Phone *</label>
-
-                        <input type="tel" required>
-
+                        <label data-lang="form_phone">Phone *</label>
+                        <input type="tel" id="phone" required>
                     </div>
-
                     <div class="form-group">
-
-                        <label>Email</label>
-
-                        <input type="email">
-
+                        <label data-lang="form_email">Email</label>
+                        <input type="email" id="email">
                     </div>
-
                     <div class="form-group">
-
-                        <label>Message *</label>
-
-                        <textarea required></textarea>
-
+                        <label data-lang="form_service">Interested In</label>
+                        <select id="service">
+                            <option value="general" data-lang="opt_general">General Inquiry</option>
+                            <option value="kitchen" data-lang="opt_kitchen">Zainab Nexus Kitchens</option>
+                            <option value="couture" data-lang="opt_couture">Zainab Nexus Couture</option>
+                            <option value="logistics" data-lang="opt_logistics">Zainab Nexus Logistics</option>
+                            <option value="partner" data-lang="opt_partner">Become a Partner</option>
+                        </select>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-
+                    <div class="form-group">
+                        <label data-lang="form_message">Message *</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-lang="form_submit">Send Message</button>
                 </form>
-
             </div>
-
         </div>
-
     </section>
 
-
-
     <!-- Footer -->
-
     <footer>
-
         <div class="footer-content">
-
             <div class="footer-section">
-
                 <h3>Zainab Nexus</h3>
-
-                <p>A women-led proprietorship empowering women through safe, respectful business opportunities in Hyderabad Old City and beyond.</p>
-
-                <p><strong>Proprietor:</strong> Zakia Banu</p>
-
+                <p data-lang="footer_desc">A women-led proprietorship empowering women through safe, respectful business opportunities in Hyderabad Old City and beyond.</p>
+                <p><strong data-lang="proprietor_label">Proprietor:</strong> <span data-lang="proprietor_name">Zakia Banu</span></p>
             </div>
-
             <div class="footer-section">
-
-                <h3>Quick Links</h3>
-
-                <p><a href="#about">About Us</a></p>
-
-                <p><a href="#services">Our Services</a></p>
-
-                <p><a href="#impact">Our Impact</a></p>
-
-                <p><a href="#contact">Contact</a></p>
-
+                <h3 data-lang="footer_links">Quick Links</h3>
+                <p><a href="#about" data-lang="nav_about">About Us</a></p>
+                <p><a href="#services" data-lang="nav_services">Our Services</a></p>
+                <p><a href="#impact" data-lang="nav_impact">Our Impact</a></p>
+                <p><a href="#contact" data-lang="nav_contact">Contact</a></p>
             </div>
-
             <div class="footer-section">
-
-                <h3>Contact</h3>
-
+                <h3 data-lang="contact_info_title">Contact</h3>
                 <p>📞 +91 9247653882</p>
-
                 <p>✉️ zainabnexus.works@gmail.com</p>
-
-                <p>📍 Hyderabad Old City, Telangana</p>
-
+                <p data-lang="footer_location">📍 Hyderabad Old City, Telangana</p>
             </div>
-
         </div>
-
         <div class="footer-bottom">
-
-            <p>&copy; 2024 Zainab Nexus. Empowering Women Through Opportunity.</p>
-
-            <p>Proprietorship owned and operated by Zakia Banu</p>
-
+            <p>&copy; 2024 Zainab Nexus. <span data-lang="tagline">Empowering Women Through Opportunity</span>.</p>
+            <p data-lang="footer_owner">Proprietorship owned and operated by Zakia Banu</p>
         </div>
-
     </footer>
 
-
-
     <!-- WhatsApp Float Button -->
-
     <a href="https://wa.me/919247653882" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
-
         💬
-
     </a>
 
-
-
     <script>
-
-        function toggleMenu() {
-
-            const navLinks = document.getElementById('navLinks');
-
-            navLinks.classList.toggle('active');
-
-        }
-
-
-
-        function handleSubmit(event) {
-
-            event.preventDefault();
-
-            alert('Thank you for your message! We will contact you soon.');
-
-            event.target.reset();
-
-        }
-
-
-
-        // Smooth scrolling
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-            anchor.addEventListener('click', function (e) {
-
-                e.preventDefault();
-
-                const target = document.querySelector(this.getAttribute('href'));
-
-                if (target) {
-
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                    // Close mobile menu if open
-
-                    document.getElementById('navLinks').classList.remove('active');
-
-                }
-
-            });
-
-        });
-
-    </script>
-
-</body>
-
-</html>
+        const translations = {
+            en: {
+                tagline: "Empowering Women",
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_services: "Services",
+                nav_impact: "Our Impact",
+                nav_gallery: "Gallery",
+                nav_contact: "Contact",
+                hero_title: "Empowering Women Through Opportunity",
+                hero_subtitle: "Creating safe, respectful pathways for women to achieve financial independence while honoring cultural values and personal dignity.",
+                cta_partner: "Join as a Partner",
+                cta_services: "Explore Our Services",
+                about_title: "About Zainab Nexus",
+                about_subtitle: "A women-led proprietorship rooted in community values",
+                about_story_title: "Our Story",
+                about_para1: "Zainab Nexus was founded with a clear vision: to create opportunities for women who face social, cultural, or mobility restrictions that prevent them from working outside their homes. We understand that many families in Hyderabad Old City and beyond hesitate to allow their daughters or wives to step into traditional workplaces.",
+                about_para2: "We provide safe, respectful, women-only business opportunities where women can work, manage, and grow with complete dignity. From cloud kitchens to tailoring services and transportation, we build platforms where women lead.",
+                proprietor_label: "Proprietor

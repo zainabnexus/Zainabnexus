@@ -61,7 +61,7 @@ Safe and reliable transport services designed to empower women drivers and manag
 - **Business Name:** Zainab Nexus  
 - **Ownership:** Proprietorship  
 - **Founder / Proprietor:** Zakia Banu  
-- **Contact:** +91 9247653882  
+- **Contact:** +919247653882  
 - **Email:** zainabnexus.works@gmail.com  
 
 ---

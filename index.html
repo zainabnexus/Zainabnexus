@@ -20,11 +20,31 @@
             --light-bg: #fdfdfb;
         }
 
+        /* RTL Support */
+        [dir="rtl"] {
+            text-align: right;
+        }
+        [dir="rtl"] .nav-right {
+            flex-direction: row-reverse;
+        }
+        [dir="rtl"] .mission-vision, [dir="rtl"] .impact-text {
+            border-left: none;
+            border-right: 4px solid var(--gold);
+        }
+        [dir="rtl"] .service-card {
+            border-top: 4px solid var(--primary-green);
+        }
+        [dir="rtl"] .whatsapp-float {
+            right: auto;
+            left: 30px;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--dark);
             line-height: 1.6;
             background: var(--light-bg);
+            transition: direction 0.3s ease;
         }
 
         /* Header */
@@ -78,6 +98,7 @@
             display: flex;
             gap: 0.5rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .lang-btn {
@@ -407,13 +428,21 @@
             min-height: 120px;
         }
 
-        .success-message {
-            background: #d4edda;
-            color: #155724;
+        .status-message {
             padding: 1rem;
             border-radius: 5px;
             margin-bottom: 1rem;
             display: none;
+        }
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
         }
 
         /* Footer */
@@ -490,6 +519,7 @@
 
             .language-selector {
                 order: -1;
+                justify-content: flex-end;
             }
 
             .nav-links {
@@ -544,14 +574,16 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
             <div class="logo">
-                <img src="https://instasize.com/p/6734bc74af61f7bc624210a57727f13cc5c22a4f8bc987cf9976c298728a2f2d" alt="Zainab Nexus Logo" onerror="this.style.display='none'">
+                <img src="https://i.ibb.co/HLmDCWq/logo.png" alt="Zainab Nexus Logo" onerror="this.style.display='none'">
                 <div class="logo-text">
                     <h1>Zainab Nexus</h1>
-                    <p data-lang="tagline">Empowering Women</p>
+                    <p data-en="Empowering Women" 
+                       data-te="మహిళలకు శక్తినిచ్చేది" 
+                       data-hi="महिलाओं को सशक्त बनाना" 
+                       data-ur="خواتین کو بااختیار بنانا">Empowering Women</p>
                 </div>
             </div>
             <div class="nav-right">
@@ -563,125 +595,152 @@
                 </div>
                 <button class="menu-toggle" onclick="toggleMenu()">☰</button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#home" data-lang="nav_home">Home</a></li>
-                    <li><a href="#about" data-lang="nav_about">About Us</a></li>
-                    <li><a href="#services" data-lang="nav_services">Services</a></li>
-                    <li><a href="#impact" data-lang="nav_impact">Our Impact</a></li>
-                    <li><a href="#gallery" data-lang="nav_gallery">Gallery</a></li>
-                    <li><a href="#contact" data-lang="nav_contact">Contact</a></li>
+                    <li><a href="#home" data-en="Home" data-te="హోమ్" data-hi="होम" data-ur="ہوم">Home</a></li>
+                    <li><a href="#about" data-en="About Us" data-te="మా గురించి" data-hi="हमारे बारे में" data-ur="ہمارے بارے میں">About Us</a></li>
+                    <li><a href="#services" data-en="Services" data-te="సేవలు" data-hi="सेवाएं" data-ur="خدمات">Services</a></li>
+                    <li><a href="#impact" data-en="Our Impact" data-te="మా ప్రభావం" data-hi="हमारा प्रभाव" data-ur="ہمارا اثر">Our Impact</a></li>
+                    <li><a href="#gallery" data-en="Gallery" data-te="గ్యాలరీ" data-hi="गैलरी" data-ur="گیلری">Gallery</a></li>
+                    <li><a href="#contact" data-en="Contact" data-te="సంప్రదించండి" data-hi="संपर्क" data-ur="رابطہ کریں">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h2 data-lang="hero_title">Empowering Women Through Opportunity</h2>
-            <p data-lang="hero_subtitle">Creating safe, respectful pathways for women to achieve financial independence while honoring cultural values and personal dignity.</p>
+            <h2 data-en="Empowering Women Through Opportunity" 
+                data-te="అవకాశాల ద్వారా మహిళలకు శక్తినివ్వడం" 
+                data-hi="अवसर के माध्यम से महिलाओं को सशक्त बनाना" 
+                data-ur="مواقع کے ذریعے خواتین کو بااختیار بنانا">Empowering Women Through Opportunity</h2>
+            <p data-en="Creating safe, respectful pathways for women to achieve financial independence while honoring cultural values and personal dignity."
+               data-te="సాంస్కృతిక విలువలు మరియు వ్యక్తిగత గౌరవాన్ని గౌరవిస్తూ మహిళలు ఆర్థిక స్వాతంత్య్రం సాధించడానికి సురక్షితమైన, గౌరవప్రదమైన మార్గాలను సృష్టించడం."
+               data-hi="सांस्कृतिक मूल्यों और व्यक्तिगत गरिमा का सम्मान करते हुए महिलाओं को वित्तीय स्वतंत्रता प्राप्त करने के लिए सुरक्षित, सम्मानजनक मार्ग बनाना।"
+               data-ur="ثقافتی اقدار اور ذاتی وقار کا احترام کرتے ہوئے خواتین کو مالی آزادی حاصل کرنے کے لیے محفوظ اور معزز راستے بنانا۔">Creating safe, respectful pathways for women to achieve financial independence while honoring cultural values and personal dignity.</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary" data-lang="cta_partner">Join as a Partner</a>
-                <a href="#services" class="btn btn-secondary" data-lang="cta_services">Explore Our Services</a>
+                <a href="#contact" class="btn btn-primary" data-en="Join as a Partner" data-te="భాగస్వామిగా చేరండి" data-hi="भागीदार के रूप में जुड़ें" data-ur="پارٹنر کے طور پر شامل ہوں">Join as a Partner</a>
+                <a href="#services" class="btn btn-secondary" data-en="Explore Our Services" data-te="మా సేవలను అన్వేషించండి" data-hi="हमारी सेवाओं का पता लगाएं" data-ur="ہماری خدمات دیکھیں">Explore Our Services</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="section-header">
-            <h2 data-lang="about_title">About Zainab Nexus</h2>
-            <p data-lang="about_subtitle">A women-led proprietorship rooted in community values</p>
+            <h2 data-en="About Zainab Nexus" data-te="జైనబ్ నెక్సస్ గురించి" data-hi="ज़ैनब नेक्सस के बारे में" data-ur="زینب نیکسس کے بارے میں">About Zainab Nexus</h2>
+            <p data-en="A women-led proprietorship rooted in community values"
+               data-te="సమాజ విలువలలో పాతుకుపోయిన మహిళా నాయకత్వ యాజమాన్యం"
+               data-hi="सामुदायिक मूल्यों में निहित एक महिला नेतृत्व वाली प्रोपराइटरशिप"
+               data-ur="کمیونٹی اقدار میں جڑی خواتین کی قیادت والی ملکیت">A women-led proprietorship rooted in community values</p>
         </div>
         <div class="about-content">
             <div class="about-text">
-                <h3 data-lang="about_story_title">Our Story</h3>
-                <p data-lang="about_para1">Zainab Nexus was founded with a clear vision: to create opportunities for women who face social, cultural, or mobility restrictions that prevent them from working outside their homes. We understand that many families in Hyderabad Old City and beyond hesitate to allow their daughters or wives to step into traditional workplaces.</p>
-                <p data-lang="about_para2">We provide safe, respectful, women-only business opportunities where women can work, manage, and grow with complete dignity. From cloud kitchens to tailoring services and transportation, we build platforms where women lead.</p>
-                <p><strong data-lang="proprietor_label">Proprietor:</strong> <span data-lang="proprietor_name">Zakia Banu</span><br>
-                <span data-lang="proprietor_desc">A woman entrepreneur committed to creating change in her community.</span></p>
+                <h3 data-en="Our Story" data-te="మా కథ" data-hi="हमारी कहानी" data-ur="ہماری کہانی">Our Story</h3>
+                <p data-en="Zainab Nexus was founded with a clear vision: to create opportunities for women who face social, cultural, or mobility restrictions that prevent them from working outside their homes. We understand that many families in Hyderabad Old City and beyond hesitate to allow their daughters or wives to step into traditional workplaces."
+                   data-te="జైనబ్ నెక్సస్ స్పష్టమైన దృష్టితో స్థాపించబడింది: ఇంటి వెలుపల పని చేయకుండా సామాజిక, సాంస్కృతిక లేదా కదలిక పరిమితులను ఎదుర్కొంటున్న మహిళలకు అవకాశాలను సృష్టించడం. హైదరాబాద్ పాత నగరం మరియు వెలుపల అనేక కుటుంబాలు తమ కుమార్తెలు లేదా భార్యలను సాంప్రదాయ కార్యాలయాలలోకి అనుమతించడానికి సంకోచించడం మేము అర్థం చేసుకుంటాము."
+                   data-hi="ज़ैनब नेक्सस की स्थापना एक स्पष्ट दृष्टिकोण के साथ की गई थी: उन महिलाओं के लिए अवसर पैदा करना जो सामाजिक, सांस्कृतिक या गतिशीलता प्रतिबंधों का सामना करती हैं जो उन्हें अपने घरों से बाहर काम करने से रोकती हैं।"
+                   data-ur="زینب نیکسس ایک واضح نقطہ نظر کے ساتھ قائم کیا گیا تھا: ان خواتین کے لیے مواقع پیدا کرنا جو سماجی، ثقافتی یا نقل و حرکت کی پابندیوں کا سامنا کرتی ہیں جو انہیں اپنے گھروں سے باہر کام کرنے سے روکتی ہیں۔">Zainab Nexus was founded with a clear vision: to create opportunities for women who face social, cultural, or mobility restrictions that prevent them from working outside their homes. We understand that many families in Hyderabad Old City and beyond hesitate to allow their daughters or wives to step into traditional workplaces.</p>
+                <p data-en="We provide safe, respectful, women-only business opportunities where women can work, manage, and grow with complete dignity. From cloud kitchens to tailoring services and transportation, we build platforms where women lead."
+                   data-te="మేము సురక్షితమైన, గౌరవప్రదమైన, మహిళలకు మాత్రమే వ్యాపార అవకాశాలను అందిస్తాము, ఇక్కడ మహిళలు పూర్తి గౌరవంతో పని చేయవచ్చు, నిర్వహించవచ్చు మరియు ఎదగవచ్చు."
+                   data-hi="हम सुरक्षित, सम्मानजनक, केवल महिलाओं के लिए व्यावसायिक अवसर प्रदान करते हैं जहाँ महिलाएँ पूर्ण गरिमा के साथ काम कर सकती हैं, प्रबंधन कर सकती हैं और बढ़ सकती हैं।"
+                   data-ur="ہم محفوظ، معزز، صرف خواتین کے کاروباری مواقع فراہم کرتے ہیں جہاں خواتین مکمل وقار کے ساتھ کام کر سکتی ہیں، منظم کر سکتی ہیں اور ترقی کر سکتی ہیں۔">We provide safe, respectful, women-only business opportunities where women can work, manage, and grow with complete dignity. From cloud kitchens to tailoring services and transportation, we build platforms where women lead.</p>
+                <p>
+                    <strong data-en="Proprietor:" data-te="యజమాని:" data-hi="प्रोपराइटर:" data-ur="مالک:">Proprietor:</strong> 
+                    <span data-en="Zakia Banu" data-te="జాకియా బాను" data-hi="ज़किया बानो" data-ur="ذاکیہ بانو">Zakia Banu</span><br>
+                    <span data-en="A woman entrepreneur committed to creating change in her community."
+                          data-te="తన సమాజంలో మార్పు తీసుకురావడానికి కట్టుబడి ఉన్న మహిళా వ్యవస్థాపకురాలు."
+                          data-hi="अपने समुदाय में बदलाव लाने के लिए प्रतिबद्ध एक महिला उद्यमी।"
+                          data-ur="ایک خاتون کاروباری جو اپنی کمیونٹی میں تبدیلی لانے کے لیے پرعزم ہیں۔">A woman entrepreneur committed to creating change in her community.</span>
+                </p>
             </div>
             <div class="mission-vision">
-                <h4 data-lang="vision_label">🎯 Our Vision</h4>
-                <p data-lang="vision_text">To create a safe, inclusive, and self-reliant ecosystem where women can earn, lead, and grow without compromising cultural values or personal safety.</p>
+                <h4 data-en="🎯 Our Vision" data-te="🎯 మా దృష్టి" data-hi="🎯 हमारा विजन" data-ur="🎯 ہماری نقطہ نظر">🎯 Our Vision</h4>
+                <p data-en="To create a safe, inclusive, and self-reliant ecosystem where women can earn, lead, and grow without compromising cultural values or personal safety."
+                   data-te="సాంస్కృతిక విలువలు లేదా వ్యక్తిగత భద్రతను రాజీపడకుండా మహిళలు సంపాదించగల, నాయకత్వం వహించగల మరియు ఎదగగల సురక్షితమైన వ్యవస్థను సృష్టించడం."
+                   data-hi="एक सुरक्षित, समावेशी और आत्मनिर्भर पारिस्थितिकी तंत्र बनाना जहाँ महिलाएँ सांस्कृतिक मूल्यों या व्यक्तिगत सुरक्षा से समझौता किए बिना कमा सकें, नेतृत्व कर सकें और बढ़ सकें।"
+                   data-ur="ایک محفوظ، جامع اور خود انحصار ماحولیاتی نظام بنانا جہاں خواتین ثقافتی اقدار یا ذاتی حفاظت سے سمجھوتہ کیے بغیر کما سکیں، رہنمائی کر سکیں اور ترقی کر سکیں۔">To create a safe, inclusive, and self-reliant ecosystem where women can earn, lead, and grow without compromising cultural values or personal safety.</p>
                 <br>
-                <h4 data-lang="mission_label">💚 Our Mission</h4>
-                <p data-lang="mission_text">To build a chain of women-operated cloud kitchens, provide tailoring and garment services run by women from their own communities, and enable women-friendly transportation services where women can drive, manage trips, and handle operations confidently.</p>
+                <h4 data-en="💚 Our Mission" data-te="💚 మా లక్ష్యం" data-hi="💚 हमारा मिशन" data-ur="💚 ہمارا مشن">💚 Our Mission</h4>
+                <p data-en="To build a chain of women-operated cloud kitchens, provide tailoring and garment services run by women from their own communities, and enable women-friendly transportation services."
+                   data-te="మహిళలచే నిర్వహించబడే క్లౌడ్ కిచెన్‌ల గొలుసును నిర్మించడం, దర్జీ మరియు వస్త్ర సేవలను అందించడం మరియు మహిళా-స్నేహపూర్వక రవాణా సేవలను ప్రారంభించడం."
+                   data-hi="महिला-संचालित क्लाउड किचन की एक श्रृंखला बनाना, सिलाई और परिधान सेवाएं प्रदान करना और महिला-अनुकूल परिवहन सेवाओं को सक्षम करना।"
+                   data-ur="خواتین کے زیر انتظام کلاؤڈ کچن کی ایک سلسلہ بنانا، درزی اور لباس کی خدمات فراہم کرنا، اور خواتین کے لیے دوستانہ نقل و حمل کی خدمات کو فعال کرنا۔">To build a chain of women-operated cloud kitchens, provide tailoring and garment services run by women from their own communities, and enable women-friendly transportation services where women can drive, manage trips, and handle operations confidently.</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services">
         <div class="section-header">
-            <h2 data-lang="services_title">Our Services</h2>
-            <p data-lang="services_subtitle">Three empowering business verticals operated by women</p>
+            <h2 data-en="Our Services" data-te="మా సేవలు" data-hi="हमारी सेवाएं" data-ur="ہماری خدمات">Our Services</h2>
+            <p data-en="Three empowering business verticals operated by women"
+               data-te="మహిళలచే నిర్వహించబడే మూడు శక్తివంతమైన వ్యాపార విభాగాలు"
+               data-hi="महिलाओं द्वारा संचालित तीन सशक्त व्यावसायिक क्षेत्र"
+               data-ur="خواتین کی طرف سے چلائے جانے والے تین بااختیار کاروباری شعبے">Three empowering business verticals operated by women</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">🍳</div>
-                <h3 data-lang="service1_title">Zainab Nexus Kitchens</h3>
-                <p><strong data-lang="service1_subtitle">Women-Operated Cloud Kitchens</strong></p>
-                <p data-lang="service1_desc">Hygienic, FSSAI-compliant food preparation services managed entirely by women. We provide the opportunity for women to operate kitchens from home or shared spaces, creating sustainable income while maintaining flexibility.</p>
-                <p data-lang="service1_features">✓ Home-based kitchen opportunities<br>
-                ✓ Quality training and certification<br>
-                ✓ Direct orders and delivery partnerships</p>
+                <h3 data-en="Zainab Nexus Kitchens" data-te="జైనబ్ నెక్సస్ కిచెన్స్" data-hi="ज़ैनब नेक्सस किचन" data-ur="زینب نیکسس کچن">Zainab Nexus Kitchens</h3>
+                <p><strong data-en="Women-Operated Cloud Kitchens" data-te="మహిళలచే నిర్వహించబడే క్లౌడ్ కిచెన్స్" data-hi="महिला संचालित क्लाउड किचन" data-ur="خواتین کے زیر انتظام کلاؤڈ کچن">Women-Operated Cloud Kitchens</strong></p>
+                <p data-en="Hygienic, FSSAI-compliant food preparation services managed entirely by women."
+                   data-te="పూర్తిగా మహిళలచే నిర్వహించబడే పరిశుభ్రమైన, FSSAI-అనుగుణ ఆహార తయారీ సేవలు."
+                   data-hi="पूरी तरह से महिलाओं द्वारा प्रबंधित स्वच्छ, FSSAI-अनुपालन भोजन तैयार करने की सेवाएँ।"
+                   data-ur="صاف ستھرا، FSSAI کے مطابق کھانے کی تیاری کی خدمات جو مکمل طور پر خواتین کے ذریعے چلائی جاتی ہیں۔">Hygienic, FSSAI-compliant food preparation services managed entirely by women. We provide the opportunity for women to operate kitchens from home or shared spaces, creating sustainable income while maintaining flexibility.</p>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">✂️</div>
-                <h3 data-lang="service2_title">Zainab Nexus Couture</h3>
-                <p><strong data-lang="service2_subtitle">Tailoring & Garment Services</strong></p>
-                <p data-lang="service2_desc">Women-led garment production, custom tailoring, stitching, and alterations. We create employment and skill-based income opportunities for women in the garment sector, preserving traditional craftsmanship while building modern businesses.</p>
-                <p data-lang="service2_features">✓ Custom tailoring services<br>
-                ✓ Garment production units<br>
-                ✓ Skill development programs</p>
+                <h3 data-en="Zainab Nexus Couture" data-te="జైనబ్ నెక్సస్ కోచర్" data-hi="ज़ैनब नेक्सस कॉउचर" data-ur="زینب نیکسس کوچر">Zainab Nexus Couture</h3>
+                <p><strong data-en="Tailoring & Garment Services" data-te="దర్జీ మరియు వస్త్ర సేవలు" data-hi="सिलाई और परिधान सेवाएं" data-ur="درزی اور لباس کی خدمات">Tailoring & Garment Services</strong></p>
+                <p data-en="Women-led garment production, custom tailoring, stitching, and alterations."
+                   data-te="మహిళా నాయకత్వంలోని వస్త్ర ఉత్పత్తి, కస్టమ్ దర్జీ, కుట్టు మరియు మార్పులు."
+                   data-hi="महिला-नेतृत्व वाली परिधान उत्पादन, कस्टम सिलाई, और मरम्मत।"
+                   data-ur="خواتین کی قیادت میں لباس کی پیداوار، حسب ضرورت درزی، سلائی اور تبدیلیاں۔">Women-led garment production, custom tailoring, stitching, and alterations. We create employment and skill-based income opportunities for women in the garment sector, preserving traditional craftsmanship while building modern businesses.</p>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">🚗</div>
-                <h3 data-lang="service3_title">Zainab Nexus Logistics</h3>
-                <p><strong data-lang="service3_subtitle">Women-Focused Transportation</strong></p>
-                <p data-lang="service3_desc">Safe transportation services managed by women for women. Our women drivers and trip managers support mobility and independence, creating a trusted network for families who prioritize safety and dignity.</p>
-                <p data-lang="service3_features">✓ Women drivers and operators<br>
-                ✓ Safe and reliable transport<br>
-                ✓ Community-trusted service</p>
+                <h3 data-en="Zainab Nexus Logistics" data-te="జైనబ్ నెక్సస్ లాజిస్టిక్స్" data-hi="ज़ैनब नेक्सस लॉजिस्टिक्स" data-ur="زینب نیکسس لاجسٹکس">Zainab Nexus Logistics</h3>
+                <p><strong data-en="Women-Focused Transportation" data-te="మహిళలపై కేంద్రీకృత రవాణా" data-hi="महिला केंद्रित परिवहन" data-ur="خواتین پر مرکوز نقل و حمل">Women-Focused Transportation</strong></p>
+                <p data-en="Safe transportation services managed by women for women."
+                   data-te="మహిళల కోసం మహిళలచే నిర్వహించబడే సురక్షితమైన రవాణా సేవలు."
+                   data-hi="महिलाओं के लिए महिलाओं द्वारा प्रबंधित सुरक्षित परिवहन सेवाएँ।"
+                   data-ur="خواتین کے لیے خواتین کے ذریعے چلائی جانے والی محفوظ نقل و حمل کی خدمات۔">Safe transportation services managed by women for women. Our women drivers and trip managers support mobility and independence, creating a trusted network for families who prioritize safety and dignity.</p>
             </div>
         </div>
     </section>
 
-    <!-- Impact Section -->
     <section class="impact" id="impact">
         <div class="section-header">
-            <h2 data-lang="impact_title">Our Vision & Impact</h2>
-            <p data-lang="impact_subtitle">Creating meaningful change in women's lives</p>
+            <h2 data-en="Our Vision & Impact" data-te="మా దృష్టి మరియు ప్రభావం" data-hi="हमारा विजन और प्रभाव" data-ur="ہماری نقطہ نظر اور اثر">Our Vision & Impact</h2>
+            <p data-en="Creating meaningful change in women's lives" data-te="మహిళల జీవితాలలో అర్థవంతమైన మార్పును సృష్టించడం" data-hi="महिलाओं के जीवन में सार्थक बदलाव लाना" data-ur="خواتین کی زندگیوں میں بامعنی تبدیلی پیدا کرنا">Creating meaningful change in women's lives</p>
         </div>
         <div class="impact-stats">
             <div class="stat-card">
                 <span class="stat-number">100%</span>
-                <span class="stat-label" data-lang="stat1">Women-Led Operations</span>
+                <span class="stat-label" data-en="Women-Led Operations" data-te="మహిళా నాయకత్వ కార్యకలాపాలు" data-hi="महिला-नेतृत्व वाले संचालन" data-ur="خواتین کی قیادت میں کام">Women-Led Operations</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number">3</span>
-                <span class="stat-label" data-lang="stat2">Business Verticals</span>
+                <span class="stat-label" data-en="Business Verticals" data-te="వ్యాపార విభాగాలు" data-hi="व्यावसायिक क्षेत्र" data-ur="کاروباری شعبے">Business Verticals</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number">∞</span>
-                <span class="stat-label" data-lang="stat3">Opportunities Ahead</span>
+                <span class="stat-label" data-en="Opportunities Ahead" data-te="ముందున్న అవకాశాలు" data-hi="आगे अवसर" data-ur="آگے کے مواقع">Opportunities Ahead</span>
             </div>
         </div>
         <div class="impact-text">
-            <h3 data-lang="impact_why_title">Why Women Choose Zainab Nexus</h3>
-            <p data-lang="impact_para1">Many women in our community wish to become financially independent but face barriers that prevent them from traditional employment. Some are not allowed to work outside their homes. Others face safety concerns or lack family support for conventional workplace environments.</p>
-            <p data-lang="impact_para2">Zainab Nexus removes these barriers. We create women-only spaces where cultural values are respected, safety is guaranteed, and leadership opportunities are abundant. Our business model is built on the principle that economic empowerment and cultural respect can coexist beautifully.</p>
-            <p><strong data-lang="impact_believe">We believe:</strong> <span data-lang="impact_believe_text">Every woman deserves the dignity of choice, the safety of community, and the opportunity to build her own future.</span></p>
+            <h3 data-en="Why Women Choose Zainab Nexus" data-te="మహిళలు జైనబ్ నెక్సస్‌ను ఎందుకు ఎంచుకుంటారు" data-hi="महिलाएं ज़ैनब नेक्सस को क्यों चुनती हैं" data-ur="خواتین زینب نیکسس کو کیوں منتخب کرتی ہیں">Why Women Choose Zainab Nexus</h3>
+            <p data-en="Many women in our community wish to become financially independent but face barriers that prevent them from traditional employment. Zainab Nexus removes these barriers by creating women-only spaces where cultural values are respected."
+               data-te="మా సమాజంలోని చాలా మంది మహిళలు ఆర్థికంగా స్వతంత్రులు కావాలనుకుంటారు కానీ అడ్డంకులను ఎదుర్కొంటారు. జైనబ్ నెక్సస్ ఈ అడ్డంకులను తొలగిస్తుంది."
+               data-hi="हमारे समुदाय की कई महिलाएं आर्थिक रूप से स्वतंत्र होना चाहती हैं लेकिन बाधाओं का सामना करती हैं। ज़ैनब नेक्सस इन बाधाओं को दूर करता है।"
+               data-ur="ہماری کمیونٹی میں بہت سی خواتین مالی طور پر خود مختار بننا چاہتی ہیں لیکن رکاوٹوں کا سامنا کرتی ہیں۔ زینب نیکسس ان رکاوٹوں کو دور کرتا ہے۔">Many women in our community wish to become financially independent but face barriers that prevent them from traditional employment. Some are not allowed to work outside their homes. Others face safety concerns or lack family support for conventional workplace environments. Zainab Nexus removes these barriers.</p>
+            <p><strong data-en="We believe:" data-te="మేము నమ్ముతున్నాము:" data-hi="हमारा मानना ​​है:" data-ur="ہم یقین رکھتے ہیں:">We believe:</strong> <span data-en="Every woman deserves the dignity of choice, the safety of community, and the opportunity to build her own future." data-te="ప్రతి మహిళ ఎంపిక గౌరవానికి, సమాజ భద్రతకు మరియు తన స్వంత భవిష్యత్తును నిర్మించుకునే అవకాశానికి అర్హురాలు." data-hi="हर महिला पसंद की गरिमा, समुदाय की सुरक्षा और अपना भविष्य बनाने के अवसर की हकदार है।" data-ur="ہر عورت انتخاب کے وقار، کمیونٹی کی حفاظت، اور اپنا مستقبل خود بنانے کے موقع کی مستحق ہے۔">Every woman deserves the dignity of choice, the safety of community, and the opportunity to build her own future.</span></p>
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section id="gallery">
         <div class="section-header">
-            <h2 data-lang="gallery_title">Our Work in Action</h2>
-            <p data-lang="gallery_subtitle">Glimpses of our community and services</p>
+            <h2 data-en="Our Work in Action" data-te="మా పనిలో చర్య" data-hi="हमारा काम" data-ur="ہمارا کام">Our Work in Action</h2>
+            <p data-en="Glimpses of our community and services" data-te="మా సమాజం మరియు సేవల సంగ్రహావలోకనాలు" data-hi="हमारे समुदाय और सेवाओं की झलकियाँ" data-ur="ہماری کمیونٹی اور خدمات کی جھلکیاں">Glimpses of our community and services</p>
         </div>
         <div class="gallery-grid">
             <div class="gallery-item">🍲</div>
@@ -693,123 +752,212 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="section-header">
-            <h2 data-lang="contact_title">Get in Touch</h2>
-            <p data-lang="contact_subtitle">Join us or place your order</p>
+            <h2 data-en="Get in Touch" data-te="సంప్రదించండి" data-hi="संपर्क में रहें" data-ur="رابطہ کریں">Get in Touch</h2>
+            <p data-en="Join us or place your order" data-te="మాతో చేరండి లేదా మీ ఆర్డర్ ఇవ్వండి" data-hi="हमसे जुड़ें या अपना ऑर्डर दें" data-ur="ہمارے ساتھ شامل ہوں یا اپنا آرڈر دیں">Join us or place your order</p>
         </div>
         <div class="contact-container">
             <div class="contact-info">
-                <h3 data-lang="contact_info_title">Contact Information</h3>
+                <h3 data-en="Contact Information" data-te="సంప్రదింపు సమాచారం" data-hi="संपर्क जानकारी" data-ur="رابطے کی معلومات">Contact Information</h3>
                 <div class="info-item">
-                    <strong data-lang="business_name_label">Business Name</strong>
-                    <span data-lang="business_name">Zainab Nexus (Proprietorship)</span>
+                    <strong data-en="Business Name" data-te="వ్యాపార పేరు" data-hi="व्यापार का नाम" data-ur="کاروبار کا نام">Business Name</strong>
+                    <span data-en="Zainab Nexus (Proprietorship)" data-te="జైనబ్ నెక్సస్ (యాజమాన్యం)" data-hi="ज़ैनब नेक्सस (प्रोपराइटरशिप)" data-ur="زینب نیکسس (ملکیت)">Zainab Nexus (Proprietorship)</span>
                 </div>
                 <div class="info-item">
-                    <strong data-lang="proprietor_label">Proprietor</strong>
-                    <span data-lang="proprietor_name">Zakia Banu</span>
+                    <strong data-en="Proprietor" data-te="యజమాని" data-hi="प्रोपराइटर" data-ur="مالک">Proprietor</strong>
+                    <span data-en="Zakia Banu" data-te="జాకియా బాను" data-hi="ज़किया बानो" data-ur="ذاکیہ بانو">Zakia Banu</span>
                 </div>
                 <div class="info-item">
-                    <strong data-lang="phone_label">Phone</strong>
+                    <strong data-en="Phone" data-te="ఫోన్" data-hi="फोन" data-ur="فون">Phone</strong>
                     <a href="tel:+919247653882">+91 9247653882</a>
                 </div>
                 <div class="info-item">
-                    <strong data-lang="email_label">Email</strong>
+                    <strong data-en="Email" data-te="ఇమెయిల్" data-hi="ईमेल" data-ur="ای میل">Email</strong>
                     <a href="mailto:zainabnexus.works@gmail.com">zainabnexus.works@gmail.com</a>
                 </div>
                 <div class="info-item">
-                    <strong data-lang="location_label">Location</strong>
-                    <span data-lang="location_text">Hyderabad Old City, Telangana</span>
+                    <strong data-en="Location" data-te="స్థానం" data-hi="स्थान" data-ur="مقام">Location</strong>
+                    <span data-en="Hyderabad Old City, Telangana" data-te="హైదరాబాద్ పాత నగరం, తెలంగాణ" data-hi="हैदराबाद पुराना शहर, तेलंगाना" data-ur="حیدرآباد اولڈ سٹی، تلنگانہ">Hyderabad Old City, Telangana</span>
                 </div>
             </div>
 
             <div class="contact-form">
-                <h3 data-lang="form_title">Send Us a Message</h3>
-                <div class="success-message" id="successMessage" data-lang="form_success">Thank you for your message! We will contact you soon.</div>
-                <form id="contactForm" onsubmit="handleSubmit(event)">
+                <h3 data-en="Send Us a Message" data-te="మాకు సందేశం పంపండి" data-hi="हमें संदेश भेजें" data-ur="ہمیں پیغام بھیجیں">Send Us a Message</h3>
+                
+                <div class="status-message success-message" id="successMsg" data-en="Thank you! Your message has been sent successfully." data-hi="धन्यवाद! आपका संदेश सफलतापूर्वक भेज दिया गया है।" data-te="ధన్యవాదాలు! మీ సందేశం విజయవంతంగా పంపబడింది." data-ur="شکریہ! آپ کا پیغام کامیابی کے ساتھ بھیج دیا گیا ہے۔">Thank you! Your message has been sent successfully.</div>
+                
+                <div class="status-message error-message" id="errorMsg" data-en="Oops! Something went wrong. Please try again." data-hi="ओह! कुछ गलत हो गया। कृपया पुन: प्रयास करें।" data-te="అయ్యో! ఏదో తప్పు జరిగింది. దయచేసి మళ్ళీ ప్రయత్నించండి." data-ur="اوہ! کچھ غلط ہو گیا۔ براہ کرم دوبارہ کوشش کریں۔">Oops! Something went wrong. Please try again.</div>
+
+                <form id="contactForm">
+                    <input type="hidden" name="_subject" value="New Website Inquiry - Zainab Nexus">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+
                     <div class="form-group">
-                        <label data-lang="form_name">Name *</label>
-                        <input type="text" id="name" required>
+                        <label data-en="Name *" data-te="పేరు *" data-hi="नाम *" data-ur="نام *">Name *</label>
+                        <input type="text" name="name" id="name" required>
                     </div>
                     <div class="form-group">
-                        <label data-lang="form_phone">Phone *</label>
-                        <input type="tel" id="phone" required>
+                        <label data-en="Phone *" data-te="ఫోన్ *" data-hi="फोन *" data-ur="فون *">Phone *</label>
+                        <input type="tel" name="phone" id="phone" required>
                     </div>
                     <div class="form-group">
-                        <label data-lang="form_email">Email</label>
-                        <input type="email" id="email">
+                        <label data-en="Email" data-te="ఇమెయిల్" data-hi="ईमेल" data-ur="ای میل">Email</label>
+                        <input type="email" name="email" id="email">
                     </div>
                     <div class="form-group">
-                        <label data-lang="form_service">Interested In</label>
-                        <select id="service">
-                            <option value="general" data-lang="opt_general">General Inquiry</option>
-                            <option value="kitchen" data-lang="opt_kitchen">Zainab Nexus Kitchens</option>
-                            <option value="couture" data-lang="opt_couture">Zainab Nexus Couture</option>
-                            <option value="logistics" data-lang="opt_logistics">Zainab Nexus Logistics</option>
-                            <option value="partner" data-lang="opt_partner">Become a Partner</option>
+                        <label data-en="Interested In" data-te="ఆసక్తి" data-hi="इसमें रुचि है" data-ur="دلچسپی ہے">Interested In</label>
+                        <select name="service" id="service">
+                            <option value="general" data-en="General Inquiry" data-te="సాధారణ విచారణ" data-hi="सामान्य पूछताछ" data-ur="عام انکوائری">General Inquiry</option>
+                            <option value="kitchen" data-en="Zainab Nexus Kitchens" data-te="జైనబ్ నెక్సస్ కిచెన్స్" data-hi="ज़ैनब नेक्सस किचन" data-ur="زینب نیکسس کچن">Zainab Nexus Kitchens</option>
+                            <option value="couture" data-en="Zainab Nexus Couture" data-te="జైనబ్ నెక్సస్ కోచర్" data-hi="ज़ैनब नेक्सस कॉउचर" data-ur="زینب نیکسس کوچر">Zainab Nexus Couture</option>
+                            <option value="logistics" data-en="Zainab Nexus Logistics" data-te="జైనబ్ నెక్సస్ లాజిస్టిక్స్" data-hi="ज़ैनब नेक्सस लॉजिस्टिक्स" data-ur="زینب نیکسس لاجسٹکس">Zainab Nexus Logistics</option>
+                            <option value="partner" data-en="Become a Partner" data-te="భాగస్వామి కావడానికి" data-hi="भागीदार बनें" data-ur="پارٹنر بنیں">Become a Partner</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label data-lang="form_message">Message *</label>
-                        <textarea id="message" required></textarea>
+                        <label data-en="Message *" data-te="సందేశం *" data-hi="संदेश *" data-ur="پیغام *">Message *</label>
+                        <textarea name="message" id="message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" data-lang="form_submit">Send Message</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn" data-en="Send Message" data-te="సందేశం పంపండి" data-hi="संदेश भेजें" data-ur="پیغام بھیجیں">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Zainab Nexus</h3>
-                <p data-lang="footer_desc">A women-led proprietorship empowering women through safe, respectful business opportunities in Hyderabad Old City and beyond.</p>
-                <p><strong data-lang="proprietor_label">Proprietor:</strong> <span data-lang="proprietor_name">Zakia Banu</span></p>
+                <p data-en="A women-led proprietorship empowering women through safe, respectful business opportunities."
+                   data-te="మహిళలకు శక్తినిచ్చే మహిళా నాయకత్వ యాజమాన్యం."
+                   data-hi="सुरक्षित, सम्मानजनक व्यावसायिक अवसरों के माध्यम से महिलाओं को सशक्त बनाने वाली महिला नेतृत्व वाली प्रोपराइटरशिप।"
+                   data-ur="خواتین کو بااختیار بنانے والی خواتین کی قیادت والی ملکیت۔">A women-led proprietorship empowering women through safe, respectful business opportunities in Hyderabad Old City and beyond.</p>
+                <p><strong data-en="Proprietor:" data-te="యజమాని:" data-hi="प्रोपराइटर:" data-ur="مالک:">Proprietor:</strong> <span data-en="Zakia Banu" data-te="జాకియా బాను" data-hi="ज़किया बानो" data-ur="ذاکیہ بانو">Zakia Banu</span></p>
             </div>
             <div class="footer-section">
-                <h3 data-lang="footer_links">Quick Links</h3>
-                <p><a href="#about" data-lang="nav_about">About Us</a></p>
-                <p><a href="#services" data-lang="nav_services">Our Services</a></p>
-                <p><a href="#impact" data-lang="nav_impact">Our Impact</a></p>
-                <p><a href="#contact" data-lang="nav_contact">Contact</a></p>
+                <h3 data-en="Quick Links" data-te="త్వరిత లింక్‌లు" data-hi="त्वरित संपर्क" data-ur="فوری لنکس">Quick Links</h3>
+                <p><a href="#about" data-en="About Us" data-te="మా గురించి" data-hi="हमारे बारे में" data-ur="ہمارے بارے میں">About Us</a></p>
+                <p><a href="#services" data-en="Our Services" data-te="మా సేవలు" data-hi="हमारी सेवाएं" data-ur="ہماری خدمات">Our Services</a></p>
+                <p><a href="#impact" data-en="Our Impact" data-te="మా ప్రభావం" data-hi="हमारा प्रभाव" data-ur="ہمارا اثر">Our Impact</a></p>
+                <p><a href="#contact" data-en="Contact" data-te="సంప్రదించండి" data-hi="संपर्क" data-ur="رابطہ کریں">Contact</a></p>
             </div>
             <div class="footer-section">
-                <h3 data-lang="contact_info_title">Contact</h3>
+                <h3 data-en="Contact" data-te="సంప్రదించండి" data-hi="संपर्क" data-ur="رابطہ">Contact</h3>
                 <p>📞 +91 9247653882</p>
                 <p>✉️ zainabnexus.works@gmail.com</p>
-                <p data-lang="footer_location">📍 Hyderabad Old City, Telangana</p>
+                <p data-en="📍 Hyderabad Old City, Telangana" data-te="📍 హైదరాబాద్ పాత నగరం, తెలంగాణ" data-hi="📍 हैदराबाद पुराना शहर, तेलंगाना" data-ur="📍 حیدرآباد اولڈ سٹی، تلنگانہ">📍 Hyderabad Old City, Telangana</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Zainab Nexus. <span data-lang="tagline">Empowering Women Through Opportunity</span>.</p>
-            <p data-lang="footer_owner">Proprietorship owned and operated by Zakia Banu</p>
+            <p>&copy; 2025 Zainab Nexus. <span data-en="Empowering Women Through Opportunity" data-te="అవకాశాల ద్వారా మహిళలకు శక్తినివ్వడం" data-hi="अवसर के माध्यम से महिलाओं को सशक्त बनाना" data-ur="مواقع کے ذریعے خواتین کو بااختیار بنانا">Empowering Women Through Opportunity</span>.</p>
+            <p data-en="Proprietorship owned and operated by Zakia Banu" data-te="జాకియా బాను యాజమాన్యం మరియు నిర్వహణ" data-hi="ज़किया बानो के स्वामित्व और संचालन वाली प्रोपराइटरशिप" data-ur="ملکیت ذاکیہ بانو کے پاس ہے اور وہی چلاتی ہیں">Proprietorship owned and operated by Zakia Banu</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
     <a href="https://wa.me/919247653882" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
         💬
     </a>
 
     <script>
-        const translations = {
-            en: {
-                tagline: "Empowering Women",
-                nav_home: "Home",
-                nav_about: "About Us",
-                nav_services: "Services",
-                nav_impact: "Our Impact",
-                nav_gallery: "Gallery",
-                nav_contact: "Contact",
-                hero_title: "Empowering Women Through Opportunity",
-                hero_subtitle: "Creating safe, respectful pathways for women to achieve financial independence while honoring cultural values and personal dignity.",
-                cta_partner: "Join as a Partner",
-                cta_services: "Explore Our Services",
-                about_title: "About Zainab Nexus",
-                about_subtitle: "A women-led proprietorship rooted in community values",
-                about_story_title: "Our Story",
-                about_para1: "Zainab Nexus was founded with a clear vision: to create opportunities for women who face social, cultural, or mobility restrictions that prevent them from working outside their homes. We understand that many families in Hyderabad Old City and beyond hesitate to allow their daughters or wives to step into traditional workplaces.",
-                about_para2: "We provide safe, respectful, women-only business opportunities where women can work, manage, and grow with complete dignity. From cloud kitchens to tailoring services and transportation, we build platforms where women lead.",
-                proprietor_label: "Proprietor
+        /**
+         * MULTILINGUAL SYSTEM
+         */
+        function changeLanguage(lang) {
+            // Set direction
+            const isRTL = lang === 'ur';
+            document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+
+            // Update all elements with data attributes
+            const translatableElements = document.querySelectorAll('[data-en]');
+            translatableElements.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    // Use innerHTML to preserve checkmarks or simple formatting
+                    el.innerHTML = text;
+                }
+            });
+
+            // Update active state of buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Save preference
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // Initialize language on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            changeLanguage(savedLang);
+        });
+
+        /**
+         * MENU TOGGLE
+         */
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        /**
+         * FORM SUBMISSION (FormSubmit via AJAX)
+         */
+        const contactForm = document.getElementById('contactForm');
+        const successMsg = document.getElementById('successMsg');
+        const errorMsg = document.getElementById('errorMsg');
+        const submitBtn = document.getElementById('submitBtn');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // UI state
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending...";
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+
+            const formData = new FormData(contactForm);
+            
+            fetch("https://formsubmit.co/ajax/zainabnexus.works@gmail.com", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success === "true" || data.success === true) {
+                    successMsg.style.display = 'block';
+                    contactForm.reset();
+                } else {
+                    errorMsg.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                errorMsg.style.display = 'block';
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                const currentLang = localStorage.getItem('preferredLang') || 'en';
+                submitBtn.innerText = submitBtn.getAttribute(`data-${currentLang}`);
+            });
+        });
+    </script>
+</body>
+</html>

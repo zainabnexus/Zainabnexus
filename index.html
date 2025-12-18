@@ -571,6 +571,75 @@
         .hidden {
             display: none;
         }
+        /* ===== FINAL LAYOUT STABILITY FIXES ===== */
+
+/* Prevent logo from breaking layout */
+.logo img {
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+/* Lock header height behavior */
+header nav {
+    min-height: 90px;
+}
+
+/* Keep logo + text aligned cleanly */
+.logo {
+    flex-shrink: 0;
+}
+
+/* Fix language selector glitch */
+.language-selector {
+    flex-wrap: nowrap !important;
+    white-space: nowrap;
+}
+
+/* Prevent language buttons from stacking */
+.lang-btn {
+    line-height: 1;
+}
+
+/* Ensure nav right side never overlaps logo */
+.nav-right {
+    margin-left: auto;
+    max-width: 65%;
+}
+
+/* Smoothen sticky header appearance */
+header {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Desktop-specific polish */
+@media (min-width: 969px) {
+    nav {
+        align-items: center;
+    }
+
+    .nav-links {
+        align-items: center;
+    }
+}
+
+/* Mobile cleanup */
+@media (max-width: 968px) {
+    .logo-text h1 {
+        font-size: 1.2rem;
+    }
+
+    .language-selector {
+        justify-content: flex-end;
+    }
+}
+
+/* Prevent overflow issues */
+body {
+    overflow-x: hidden;
+}
     </style>
 </head>
 <body>
